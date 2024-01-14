@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="script" href="script.js"> -->
+    <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon-32x32.png">
+</head>
+<body>
+   <div id="header">
+    <div class="container"> 
+        <nav>
+            <img src="images/portfolio.png" class="logo">
+            <ul>
+                <li> <a href="#">Home</a></li>
+                <li> <a href="#about">About</a></li>
+                <li> <a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-text">
+            <p>WEB DEVELOPER & PROGRAMMER</p>
+            <h1> Hi,I'm Shreya and this is <br><span>My Portfolio</span></h1>
+            
+        </div>
+    </div>
+   </div> 
+   <!-- -------------------About me------------------- -->
+   <div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="images/img2.png">
+            </div>
+            <div class="about-col-2">
+                 <h1 class = "sub-title">About me</h1>
+                 <p>Hi, I'm Shreya, a second-year BE student at Vidyavardhini's College of Engineering. As a passionate web developer and programmer, I enjoy crafting user-friendly websites. My skills span front-end to back-end development, and I'm dedicated to staying updated with industry trends. I thrive on collaboration and continuous learning. Explore my portfolio for a glimpse of my projects, and let's connect to create something amazing!</p>
+            <div class="tab-titles">
+                <p class="tab-links active-link" onclick="opentab('Skills')" data-tab="Skills">Skills</p>
+                <p class="tab-links" onclick="opentab('Experience')" data-tab="Experience">Experience</p>
+                <p class="tab-links" onclick="opentab('Education')" data-tab="Education">Education</p>
+                <p class="tab-links" onclick="opentab('Projects')" data-tab="Projects">Projects</p>
+                
+            </div>
+            <div class="tab-contents active-tab" id="Skills">
+                <ul>
+                    <li><span>Web Development</span><br>Building websites</li>
+                    <li><span>C language</span><br>Basis of modern programming</li>
+                    <li><span>Java</span><br>Designing App interfaces</li>
+                    <li><span>Python</span><br>For AI/ML</li>
+                </ul>
+            </div>
+
+            <div class="tab-contents" id="Experience">
+                <ul>
+                    <li><span>Jan 2023</span><br>Associate at E-cell Vcet</li>
+                    <li><span>March 2023</span><br>Assistant Lead at Webx Vcet</li>
+                    <li><span>Dec 2023</span><br>Smart India Hackathon Finalist</li>
+                </ul>
+            </div>
+
+            <div class="tab-contents" id="Education">
+                <ul>
+                    <li><span>2023</span><br>Pursuing BE from Vidavardhini's College of Engineering and Technology (Second year)</li>
+                    <li><span>2022</span><br>Hsc from Pace junior college,Andheri</li>
+                    <li><span>2020</span><br>Ssc from National English High School,Virar</li>
+                </ul>
+            </div>
+            <div class="tab-contents active-tab" id="Projects">
+                <ul>
+                    <li><span>Web Notes</span><br>Extension to make low effort notes from websites</li>
+                    <li><span>Real Time Infrastructure Monitoring(SIH)</span><br>Reducing human effort</li>
+                </ul>
+            </div>
+
+           </div>
+        </div>
+    </div>
+   </div>
+   <!-- --------------------Contacts-------------------- -->
+   <div id="contact">
+    <div class="container">
+        <div class="row">
+           <div class="contacts">
+            <h1 class="sub-title">Contact me</h1>
+            <p><i class="fa fa-solid fa-paper-plane"></i>shreyuchaudhari420@gmail.com</p>
+            <p><i class="fa fa-solid fa-phone"></i>8983388095</p>
+            <div class="social-icons">
+                <a href="https://github.com/ShreuChaudhari"><i class="fab fa fa-github-alt"></i></i></a>
+                <a href="https://www.linkedin.com/in/shreya-chaudhari"><i class="fa fa-brands fa-linkedin"></i></a>
+                
+                <div class="button-container">
+                    <button class="animated-button"><span><a href="images/Resume.pdf" download>Download Resume</a></span></button>
+                  </div>
+                  
+        </div>
+    </div>
+    
+    
+    <div id="parallax-bg"></div>
+    <div class="copyright">
+        <p>@ 2024 Shreya. All Rights Reserved. | Website designed and developed by Shreya</p>
+    </div>
+   </div>
+   
+   <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const parallaxBg = document.getElementById("parallax-bg");
+
+    window.addEventListener("scroll", function () {
+        const yOffset = window.pageYOffset;
+        parallaxBg.style.transform = "translateY(" + yOffset * 0.5 + "px)";
+    });
+
+    // Add this part for setting the initial state of tabs and content
+    const defaultTab = "Skills"; // Set the default tab you want to be active
+
+    const tablinks = document.getElementsByClassName("tab-links");
+    const tabcontents = document.getElementsByClassName("tab-contents");
+
+    // Hide all tabs and contents
+    for (const tabcontent of tabcontents) {
+        tabcontent.classList.remove("active-tab");
+    }
+    for (const tablink of tablinks) {
+        tablink.classList.remove("active-link");
+    }
+
+    // Show the default tab and content
+    document.getElementById(defaultTab).classList.add("active-tab");
+    document.querySelector(`.tab-links[data-tab='${defaultTab}']`).classList.add("active-link");
+});
+
+function opentab(tabname) {
+    const tablinks = document.getElementsByClassName("tab-links");
+    const tabcontents = document.getElementsByClassName("tab-contents");
+
+    for (const tablink of tablinks) {
+        tablink.classList.remove("active-link");
+    }
+    for (const tabcontent of tabcontents) {
+        tabcontent.classList.remove("active-tab");
+    }
+
+    event.currentTarget.classList.add("active-link");
+    document.getElementById(tabname).classList.add("active-tab");
+}
+
+</script>
+
+</body>
+</html>
